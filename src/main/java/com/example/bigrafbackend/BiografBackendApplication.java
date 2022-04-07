@@ -19,5 +19,4 @@ public class BiografBackendApplication {
         StaffService staffService = context.getBean(StaffService.class);
     }
 
-
 }

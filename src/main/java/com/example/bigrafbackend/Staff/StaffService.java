@@ -14,5 +14,9 @@ public class StaffService {
     public void addStaff(Staff staff) {
         staffdao.addStaff(staff.getName(), staff.getPhone(), staff.getUsername(), staff.getPassword());
     }
+
+    public void staffLogin(Staff staff){
+
+    }
 }
 

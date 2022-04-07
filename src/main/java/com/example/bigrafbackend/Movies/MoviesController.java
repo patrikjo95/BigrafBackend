@@ -9,6 +9,9 @@ public class MoviesController {
     MoviesService moviesService;
 
     @GetMapping("/addMovie")
-    public void addMovie()
+    public void addMovie(){
+
+
+    }
 
 }

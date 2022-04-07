@@ -22,6 +22,11 @@ public class StaffDAO {
 
     }
 
+    public void staffLogin(String username, String password){
+        //kalla på dekrypteraTable och kolla input från textfält så att det stämmer med username och password!
+
+    }
+
 
 
     public void insertStaff(int id, String name, String phone, String userName, String passWord, String add_staff, String delete_staff, String role, String hours, String sell_tickets, String tickets_sold, String movie_name, String dateTime) {

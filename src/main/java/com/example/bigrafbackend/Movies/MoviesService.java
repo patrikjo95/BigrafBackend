@@ -10,8 +10,8 @@ public class MoviesService {
     @Autowired
     MoviesDAO moviesDAO;
 
-    public void addMovie(){
-        //Lägg in stored procedure addMovie här!
+    public void addMovie(Movies movies){
+        moviesDAO.insertMovies(movies.getName(), movies.getDateTime(), movies.getTheaterId());
     }
 
     public void getMovies(){

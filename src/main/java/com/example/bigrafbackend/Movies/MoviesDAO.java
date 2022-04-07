@@ -15,16 +15,10 @@ import java.sql.SQLException;
         @Autowired
         private JdbcTemplate jdbcTemplate;
 
-        public void insertMovies(int id, int theaterId, String name, String dateTime) {
+        public void insertMovies(String movieName, String dateTime, int theaterId) {
+            String query = "Call add_movie(?, ?, ?)";
 
-            String query = "INSERT INTO movies (Movies_id, Movies_theaterId, Movies_name, Movies_dateTime) VALUES(?,?,?,?)";
-
-            int result = jdbcTemplate.update(query, id, theaterId, name, dateTime);
-
-            if (result > 0) {
-                System.out.println(result + " Movie added to database, good job dumbass");
-
-            }
+            jdbcTemplate.update(query, movieName, dateTime, theaterId);
         }
 
             public Movies getMoviesById(int id){

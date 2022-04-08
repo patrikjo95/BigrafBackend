@@ -29,18 +29,21 @@ public class StaffDAO {
         Map<String, String> inParameters = new HashMap<>();
 
 
-
         inParameters.put("name", name);
         inParameters.put("phone", phone);
         inParameters.put("username2", username);
         inParameters.put("password2", password);
-        inParameters.put("Douplicate", tom);
+        String out = inParameters.put("Douplicate", tom);
+
 
         SqlParameterSource in = new MapSqlParameterSource(inParameters);
 
         jdbcCall.execute(in);
 
         System.out.println(inParameters);
+
+        System.out.println(out);
+
     }
 
     public void staffLogin(String username, String password){

@@ -5,14 +5,13 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Service
-@Component
 public class StaffService {
 
     @Autowired
     StaffDAO staffdao;
 
     public void addStaff(Staff staff) {
-        staffdao.addStaff(staff.getName(), staff.getPhone(), staff.getUsername(), staff.getPassword());
+        staffdao.addStaff(staff.getName(), staff.getPhone(), staff.getUsername(), staff.getPassword(), staff.getTom());
     }
 
     public void staffLogin(Staff staff){

@@ -14,17 +14,26 @@ public class Staff {
     private String phone;
     private String username;
     private String password;
+    private String tom;
 
 
-    public Staff(String name, String phone, String username, String password){
+    public Staff(String name, String phone, String username, String password, String tom){
         this.id = id;
         this.name = name;
         this.phone = phone;
         this.username = username;
         this.password = password;
+        this.tom = tom;
 
 
+    }
 
+    public String getTom() {
+        return tom;
+    }
+
+    public void setTom(String tom) {
+        this.tom = tom;
     }
 
     public int getId() {

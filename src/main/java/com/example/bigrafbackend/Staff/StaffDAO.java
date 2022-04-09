@@ -38,7 +38,7 @@ public class StaffDAO {
         staff.setPhone(phone);
         staff.setUsername(username);
         staff.setPassword(password);
-        staff.setTom((String) outParameters.get("tom"));
+        //staff.setTom((String) outParameters.get("@tom"));
 
         jdbcCall.execute(in);
 

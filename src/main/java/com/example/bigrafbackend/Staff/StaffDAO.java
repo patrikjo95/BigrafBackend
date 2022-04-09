@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
 
+import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,9 +16,8 @@ public class StaffDAO {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
-    private SimpleJdbcCall procReadStaff;
 
-    public Staff addStaff(String name, String phone, String username, String password, String tom) {
+    public Map addStaff(String name, String phone, String username, String password, String tom) {
         SimpleJdbcCall jdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("addStaff");
 
 
@@ -29,7 +29,6 @@ public class StaffDAO {
         inParameters.put("phone", phone);
         inParameters.put("username2", username);
         inParameters.put("password2", password);
-
 
         SqlParameterSource in = new MapSqlParameterSource(inParameters);
 
@@ -47,7 +46,8 @@ public class StaffDAO {
         System.out.println("tom:" + tom);
         System.out.println("outParameters: " + outParameters); //outParameters listan ÄR duplicate tabellen
 
-        return staff;
+
+        return outParameters;
     }
 
     public void staffLogin(String username, String password){

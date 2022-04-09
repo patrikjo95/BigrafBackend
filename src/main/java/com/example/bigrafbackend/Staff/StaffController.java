@@ -18,8 +18,6 @@ public class StaffController {
         Staff staff = new Staff(name, phone, username, password, tom);
         staffService.addStaff(staff);
 
-        System.out.println(tom);
-
     }
 
     @GetMapping("/staffLogin")

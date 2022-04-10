@@ -23,14 +23,23 @@ public class StaffController {
         Gson gson = new Gson();
         String outParametersAsString = gson.toJson(outParameters);
 
-        System.out.println("OutParameters i controller: " + outParametersAsString);
+        //System.out.println("OutParameters i controller: " + outParametersAsString);
 
         return outParametersAsString;
 
     }
 
     @GetMapping("/staffLogin")
-    public void staffLogin(@RequestParam(value = "username") String username, @RequestParam(value = "password") String password, @RequestParam(value = "@tom") String tom){
+    public String staffLogin(@RequestParam(value = "username") String username, @RequestParam(value = "password") String password, @RequestParam(value = "@tom") String tom){
+        Staff staff = new Staff(username, password, tom);
 
+        Map outParameters = staffService.staffLogin(staff);
+
+        Gson gson = new Gson();
+        String outParametersAsString = gson.toJson(outParameters);
+
+        System.out.println("outParameters i controller: " + outParametersAsString);
+
+        return outParametersAsString;
     }
 }

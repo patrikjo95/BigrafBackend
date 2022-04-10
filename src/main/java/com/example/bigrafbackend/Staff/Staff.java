@@ -10,7 +10,6 @@ public class Staff {
 
 
     public Staff(String name, String phone, String username, String password, String tom){
-        this.id = id;
         this.name = name;
         this.phone = phone;
         this.username = username;
@@ -19,6 +18,13 @@ public class Staff {
 
 
     }
+
+    public Staff(String username, String password, String tom) {
+        this.username = username;
+        this.password = password;
+        this.tom = tom;
+    }
+
 
     public String getTom() {
         return tom;

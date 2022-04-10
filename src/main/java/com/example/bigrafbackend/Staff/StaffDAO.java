@@ -2,12 +2,14 @@ package com.example.bigrafbackend.Staff;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -61,7 +63,7 @@ public class StaffDAO {
 
         jdbcCall.execute(in);
 
-        System.out.println("outParameters i dao: " + outParameters); //outParameters listan ÄR duplicate tabellen
+        //System.out.println("outParameters i dao: " + outParameters); //outParameters listan ÄR duplicate tabellen
 
         return outParameters;
 

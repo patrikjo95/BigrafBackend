@@ -46,8 +46,24 @@ public class StaffDAO {
         return outParameters;
     }
 
-    public void staffLogin(String username, String password){
-        String query = "CALL decryptTable('alla')";
+    public Map staffLogin(String username, String password, String tom){
+        SimpleJdbcCall jdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("scanUsernamePassword");
+
+        Map<String, String> inParameters = new HashMap<>();
+
+
+        inParameters.put("username2", username);
+        inParameters.put("password2", password);
+
+        SqlParameterSource in = new MapSqlParameterSource(inParameters);
+
+        Map<String, Object> outParameters = jdbcCall.execute(in);
+
+        jdbcCall.execute(in);
+
+        System.out.println("outParameters i dao: " + outParameters); //outParameters listan ÄR duplicate tabellen
+
+        return outParameters;
 
     }
 

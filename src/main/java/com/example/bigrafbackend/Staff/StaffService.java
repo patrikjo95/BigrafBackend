@@ -18,8 +18,8 @@ public class StaffService {
         return outParameters;
     }
 
-    public void staffLogin(Staff staff){
-
+    public Map staffLogin(Staff staff){
+        return staffdao.staffLogin(staff.getUsername(), staff.getPassword(), staff.getTom());
     }
 }
 

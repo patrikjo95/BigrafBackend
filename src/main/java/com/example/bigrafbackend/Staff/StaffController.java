@@ -30,8 +30,7 @@ public class StaffController {
     }
 
     @GetMapping("/staffLogin")
-    public void staffLogin(){
-
+    public void staffLogin(@RequestParam(value = "username") String username, @RequestParam(value = "password") String password, @RequestParam(value = "@tom") String tom){
 
     }
 }

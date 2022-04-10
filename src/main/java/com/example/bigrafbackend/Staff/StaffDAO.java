@@ -20,7 +20,6 @@ public class StaffDAO {
     public Map addStaff(String name, String phone, String username, String password, String tom) {
         SimpleJdbcCall jdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("addStaff");
 
-
         Map<String, String> inParameters = new HashMap<>();
 
         Staff staff = new Staff(name, phone, username, password, tom);
@@ -42,10 +41,7 @@ public class StaffDAO {
 
         jdbcCall.execute(in);
 
-        System.out.println(staff);
-        System.out.println("tom:" + tom);
         System.out.println("outParameters i dao: " + outParameters); //outParameters listan ÄR duplicate tabellen
-
 
         return outParameters;
     }

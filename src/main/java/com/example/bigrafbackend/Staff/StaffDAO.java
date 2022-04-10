@@ -44,7 +44,7 @@ public class StaffDAO {
 
         System.out.println(staff);
         System.out.println("tom:" + tom);
-        System.out.println("outParameters: " + outParameters); //outParameters listan ÄR duplicate tabellen
+        System.out.println("outParameters i dao: " + outParameters); //outParameters listan ÄR duplicate tabellen
 
 
         return outParameters;

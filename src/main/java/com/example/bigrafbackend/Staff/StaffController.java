@@ -46,7 +46,7 @@ public class StaffController {
     public String deleteStaff(@RequestParam(value = "username") String username, @RequestParam(value = "password") String password, @RequestParam(value = "@tom") String tom){
         Staff staff = new Staff(username, password, tom);
 
-        Map outParameters = staffService.staffLogin(staff);
+        Map outParameters = staffService.deleteStaff(staff);
 
         Gson gson = new Gson();
 

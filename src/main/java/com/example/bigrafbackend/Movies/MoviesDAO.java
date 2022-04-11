@@ -3,10 +3,15 @@ package com.example.bigrafbackend.Movies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 
 @Repository
@@ -15,10 +20,20 @@ import java.sql.SQLException;
         @Autowired
         private JdbcTemplate jdbcTemplate;
 
-        public void insertMovies(String movieName, String dateTime, int theaterId) {
-            String query = "CALL add_movie(?, ?, ?)";
+        public void addMovies(String movieName, String dateTime, int theaterId) {
+            SimpleJdbcCall jdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("add_movie");
 
-            jdbcTemplate.update(query, movieName, dateTime, theaterId);
+            Map<String, String> inParameters = new HashMap<>();
+
+
+            inParameters.put("movieName", movieName);
+            inParameters.put("dateTime", dateTime);
+            inParameters.put("theaterId", String.valueOf(theaterId));
+
+            SqlParameterSource in = new MapSqlParameterSource(inParameters);
+
+            jdbcCall.execute(in);
+
         }
 
 }

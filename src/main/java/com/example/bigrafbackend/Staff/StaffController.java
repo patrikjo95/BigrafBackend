@@ -21,11 +21,10 @@ public class StaffController {
         Map outParameters = staffService.addStaff(staff);
 
         Gson gson = new Gson();
-        String outParametersAsString = gson.toJson(outParameters);
 
         //System.out.println("OutParameters i controller: " + outParametersAsString);
 
-        return outParametersAsString;
+        return gson.toJson(outParameters);
 
     }
 
@@ -36,10 +35,9 @@ public class StaffController {
         Map outParameters = staffService.staffLogin(staff);
 
         Gson gson = new Gson();
-        String outParametersAsString = gson.toJson(outParameters);
 
-        System.out.println("outParameters i controller: " + outParametersAsString);
+        //System.out.println("outParameters i controller: " + outParametersAsString);
 
-        return outParametersAsString;
+        return gson.toJson(outParameters);
     }
 }

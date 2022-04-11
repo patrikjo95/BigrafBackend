@@ -10,8 +10,14 @@ public class MoviesController {
 
     @GetMapping("/addMovie")
     public void addMovie(){
-        //ropa på addMovie, film lägg tills beroende på vilken knapp man klickat på i frontend
+        //moviesService.addMovie();
+    }
 
+    public String getMovies(){
+
+
+
+        return null;
     }
 
 }

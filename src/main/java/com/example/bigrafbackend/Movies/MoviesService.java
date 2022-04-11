@@ -11,7 +11,7 @@ public class MoviesService {
     MoviesDAO moviesDAO;
 
     public void addMovie(Movies movies){
-        moviesDAO.insertMovies(movies.getName(), movies.getDateTime(), movies.getTheaterId());
+        moviesDAO.addMovies(movies.getName(), movies.getDateTime(), movies.getTheaterId());
     }
 
     public void getMovies(){

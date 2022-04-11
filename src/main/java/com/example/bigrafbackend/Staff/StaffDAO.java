@@ -53,7 +53,6 @@ public class StaffDAO {
 
         Map<String, String> inParameters = new HashMap<>();
 
-
         inParameters.put("username2", username);
         inParameters.put("password2", password);
 
@@ -75,7 +74,6 @@ public class StaffDAO {
         SimpleJdbcCall jdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("DeleteStaff");
 
         Map<String, String> inParameters = new HashMap<>();
-
 
         inParameters.put("username2", username);
         inParameters.put("password2", password);

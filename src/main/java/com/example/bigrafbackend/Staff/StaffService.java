@@ -12,14 +12,19 @@ public class StaffService {
     StaffDAO staffdao;
 
     public Map addStaff(Staff staff) {
-        Map outParameters = staffdao.addStaff(staff.getName(), staff.getPhone(), staff.getUsername(), staff.getPassword(), staff.getTom());
-
         //System.out.println("outParameters i service: " + outParameters);
-        return outParameters;
+        return staffdao.addStaff(staff.getName(), staff.getPhone(), staff.getUsername(), staff.getPassword(), staff.getTom());
+
     }
 
     public Map staffLogin(Staff staff){
         return staffdao.staffLogin(staff.getUsername(), staff.getPassword(), staff.getTom());
+
+    }
+
+    public Map deleteStaff(Staff staff){
+        return  staffdao.deleteStaff(staff.getUsername(), staff.getPassword(), staff.getTom());
+
     }
 }
 

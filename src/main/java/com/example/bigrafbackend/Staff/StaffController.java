@@ -18,6 +18,7 @@ public class StaffController {
     @GetMapping("/addStaff")
     public String addStaff(@RequestParam(value = "adminName") String name, @RequestParam(value = "phone") String phone, @RequestParam(value = "username") String username, @RequestParam(value = "password") String password, @RequestParam(value = "@tom") String tom){
         Staff staff = new Staff(name, phone, username, password, tom);
+
         Map outParameters = staffService.addStaff(staff);
 
         Gson gson = new Gson();
@@ -39,5 +40,19 @@ public class StaffController {
         //System.out.println("outParameters i controller: " + outParametersAsString);
 
         return gson.toJson(outParameters);
+    }
+
+    @GetMapping("/deleteStaff")
+    public String deleteStaff(@RequestParam(value = "username") String username, @RequestParam(value = "password") String password, @RequestParam(value = "@tom") String tom){
+        Staff staff = new Staff(username, password, tom);
+
+        Map outParameters = staffService.staffLogin(staff);
+
+        Gson gson = new Gson();
+
+        //System.out.println("outParameters i controller: " + outParametersAsString);
+
+        return gson.toJson(outParameters);
+
     }
 }

@@ -2,20 +2,24 @@ package com.example.bigrafbackend.Movies;
 
 public class Movies {
     private int id;
-    private int theaterId; //TA BORT SEATSAVAILABLE
-    private String name;
+    private int theaterId;
+    private String moviename;
     private String dateTime;
     private String seatsAvailable;
 
-    public Movies(int id, int theaterId, String name, String dateTime) {
+    public Movies(int id, int theaterId, String moviename, String dateTime) {
         this.id = id;
-        this.name = name;
+        this.moviename = moviename;
         this.dateTime = dateTime;
         this.theaterId = theaterId;
         this.seatsAvailable = seatsAvailable;
 
 
 
+    }
+
+    public Movies(String moviename) {
+        this.moviename = moviename;
     }
 
     public int getId() {
@@ -26,12 +30,12 @@ public class Movies {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getMoviename() {
+        return moviename;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setMoviename(String moviename) {
+        this.moviename = moviename;
     }
 
     public String getDateTime() {
@@ -62,7 +66,7 @@ public class Movies {
     public String toString() {
         return "Movies{" +
                 "ID=" + id +
-                ", Name='" + name + '\'' +
+                ", Name='" + moviename + '\'' +
                 ", DateTime='" + dateTime + '\'' +
                 ", TheaterID='" + theaterId +
                 ", SeatsAvailable='" + seatsAvailable + '\'' +

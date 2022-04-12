@@ -36,6 +36,19 @@ import java.util.Map;
 
         }
 
+        public Map returnMovieSchema(String moviename){
+            SimpleJdbcCall jdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("returnMovieSchema");
+
+            Map<String, String> inParameters = new HashMap<>();
+
+            inParameters.put("Moviename", moviename);
+
+            SqlParameterSource in = new MapSqlParameterSource(inParameters);
+
+
+            return jdbcCall.execute(in);
+        }
+
 }
 
 

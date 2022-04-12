@@ -11,7 +11,7 @@
     <groupId>com.example</groupId>
     <artifactId>BigrafBackend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>BigrafBackend</name>
+    <moviename>BigrafBackend</moviename>
     <description>BigrafBackend</description>
     <properties>
         <java.version>11</java.version>

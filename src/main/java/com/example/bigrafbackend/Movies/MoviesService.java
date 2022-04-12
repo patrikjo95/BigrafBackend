@@ -4,6 +4,8 @@ package com.example.bigrafbackend.Movies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
+
 @Service
 public class MoviesService {
 
@@ -11,11 +13,11 @@ public class MoviesService {
     MoviesDAO moviesDAO;
 
     public void addMovie(Movies movies){
-        moviesDAO.addMovies(movies.getName(), movies.getDateTime(), movies.getTheaterId());
+        moviesDAO.addMovies(movies.getMoviename(), movies.getDateTime(), movies.getTheaterId());
     }
 
-    public void getMovies(){
-        //Lägg in select from här, kan vara bra att koppla mot film, knapparna
+    public Map returnMovieSchema(Movies movies){
+        return moviesDAO.returnMovieSchema(movies.getMoviename());
     }
 
 }

@@ -2,7 +2,12 @@ package com.example.bigrafbackend.Movies;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
+@RestController
 public class MoviesController {
 
     @Autowired
@@ -13,11 +18,17 @@ public class MoviesController {
         //moviesService.addMovie();
     }
 
-    public String getMovies(){
+    @GetMapping("/returnMovieSchema")
+    public Map returnMovieSchema(@RequestParam(value = "Moviename") String moviename){
+        Movies movies = new Movies(moviename);
+
+        Map result = moviesService.returnMovieSchema(movies);
 
 
+        System.out.println(result);
 
-        return null;
+
+        return result;
     }
 
 }

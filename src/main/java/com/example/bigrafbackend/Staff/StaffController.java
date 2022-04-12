@@ -26,6 +26,8 @@ public class StaffController {
 
         //System.out.println("OutParameters i controller: " + outParametersAsString);
 
+        System.out.println("out parameters i staffController" +  outParameters);
+
         return gson.toJson(outParameters);
 
     }

@@ -1,5 +1,6 @@
 package com.example.bigrafbackend.Movies;
 
+import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,7 +20,7 @@ public class MoviesController {
     }
 
     @GetMapping("/returnMovieSchema")
-    public Map returnMovieSchema(@RequestParam(value = "Moviename") String moviename){
+    public String returnMovieSchema(@RequestParam(value = "Moviename") String moviename){
         Movies movies = new Movies(moviename);
 
         Map result = moviesService.returnMovieSchema(movies);
@@ -27,8 +28,11 @@ public class MoviesController {
 
         System.out.println(result);
 
+        Gson gson = new Gson();
+        String moviesAsString = gson.toJson(movies);
 
-        return result;
+        return moviesAsString;
+
     }
 
 }

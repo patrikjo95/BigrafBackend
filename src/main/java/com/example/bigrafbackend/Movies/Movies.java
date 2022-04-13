@@ -1,39 +1,39 @@
 package com.example.bigrafbackend.Movies;
 
 public class Movies {
-    private int id;
-    private int theaterId;
-    private String moviename;
-    private String dateTime;
-    private String seatsAvailable;
+    public int theaterId;
+    public String moviename;
+    public String dateTime;
+    public String seatsAvailable;
 
-    public Movies(int id, int theaterId, String moviename, String dateTime) {
-        this.id = id;
-        this.moviename = moviename;
-        this.dateTime = dateTime;
-        this.theaterId = theaterId;
-        this.seatsAvailable = seatsAvailable;
-
-
+    public Movies(int TheaterID, String Name, String DateTime, String SeatsAvailable) {
+        this.moviename = Name;
+        this.dateTime = DateTime;
+        this.theaterId = TheaterID;
+        this.seatsAvailable = SeatsAvailable;
 
     }
 
-    public Movies(String moviename) {
-        this.moviename = moviename;
+    public Movies(String Name, String DateTime, int TheaterID, String SeatsAvailable) {
+        this.moviename = Name;
+        this.dateTime = DateTime;
+        this.theaterId = TheaterID;
+        this.seatsAvailable = SeatsAvailable;
+
     }
 
     public Movies(String moviename, String dateTime, int theaterId) {
         this.moviename = moviename;
-        this.dateTime= dateTime;
+        this.dateTime = dateTime;
         this.theaterId = theaterId;
     }
 
-    public int getId() {
-        return id;
+    public int getTheaterId() {
+        return theaterId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setTheaterId(int theaterId) {
+        this.theaterId = theaterId;
     }
 
     public String getMoviename() {
@@ -52,14 +52,6 @@ public class Movies {
         this.dateTime = dateTime;
     }
 
-    public int getTheaterId() {
-        return theaterId;
-    }
-
-    public void setTheaterId(int theaterId) {
-        this.theaterId = theaterId;
-    }
-
     public String getSeatsAvailable() {
         return seatsAvailable;
     }
@@ -68,19 +60,21 @@ public class Movies {
         this.seatsAvailable = seatsAvailable;
     }
 
+
+
+    public Movies(String moviename) {
+        this.moviename = moviename;
+    }
+
     @Override
     public String toString() {
         return "Movies{" +
-                "ID=" + id +
-                ", Name='" + moviename + '\'' +
-                ", DateTime='" + dateTime + '\'' +
-                ", TheaterID='" + theaterId +
-                ", SeatsAvailable='" + seatsAvailable + '\'' +
+                "movie_name='" + moviename + '\'' +
+                ", movie_datetime='" + dateTime + '\'' +
+                ", theater_id='" + theaterId +
+                ", seats_avalible='" + seatsAvailable + '\'' +
                 '}';
     }
 }
-
-
-
 
 

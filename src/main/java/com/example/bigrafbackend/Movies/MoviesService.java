@@ -16,8 +16,13 @@ public class MoviesService {
         return moviesDAO.addMovies(movies.getMoviename(), movies.getDateTime(), movies.getTheaterId());
     }
 
-    public Map returnMovieSchema(Movies movies){
+    public Map<String, Object> returnMovieSchema(Movies movies){
+
         return moviesDAO.returnMovieSchema(movies.getMoviename());
+    }
+
+    public void callMovies(Movies movies){
+        moviesDAO.callMovies();
     }
 
 }

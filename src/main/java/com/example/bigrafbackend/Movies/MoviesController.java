@@ -30,14 +30,19 @@ public class MoviesController {
     public String returnMovieSchema(@RequestParam(value = "Moviename") String moviename){
         Movies movies = new Movies(moviename);
 
-        Map result = moviesService.returnMovieSchema(movies);
+        Map<String, Object> result = moviesService.returnMovieSchema(movies);
 
         Gson gson = new Gson();
-
 
         System.out.println(gson.toJson(result));
         return gson.toJson(result);
 
+    }
+
+    @GetMapping("/callMovies")
+        public String callMovies(){
+
+        return null;
     }
 
 }

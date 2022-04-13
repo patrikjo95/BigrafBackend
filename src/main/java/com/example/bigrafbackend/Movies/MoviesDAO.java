@@ -33,7 +33,8 @@ import java.util.Map;
             return jdbcCall.execute(in);
         }
 
-        public Map returnMovieSchema(String moviename){
+        public Map<String, Object> returnMovieSchema(String moviename){
+
             SimpleJdbcCall jdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("returnMovieSchema");
 
             Map<String, String> inParameters = new HashMap<>();
@@ -42,9 +43,15 @@ import java.util.Map;
 
             SqlParameterSource in = new MapSqlParameterSource(inParameters);
 
-
             return jdbcCall.execute(in);
         }
+
+        public void callMovies(){
+            String query =  "SELECT * FROM MOVIES";
+
+
+        }
+
 
 }
 

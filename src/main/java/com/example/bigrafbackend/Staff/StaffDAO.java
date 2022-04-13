@@ -20,16 +20,16 @@ public class StaffDAO {
     private JdbcTemplate jdbcTemplate;
 
     public Map addStaff(String name, String phone, String username, String password, String tom) {
-        SimpleJdbcCall jdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("addStaff");
+        SimpleJdbcCall jdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("add_staff");
 
         Map<String, String> inParameters = new HashMap<>();
 
         Staff staff = new Staff(name, phone, username, password, tom);
 
-        inParameters.put("name", name);
-        inParameters.put("phone", phone);
-        inParameters.put("username2", username);
-        inParameters.put("password2", password);
+        inParameters.put("new_name", name);
+        inParameters.put("new_phonenumber", phone);
+        inParameters.put("new_username", username);
+        inParameters.put("new_password", password);
 
         SqlParameterSource in = new MapSqlParameterSource(inParameters);
 
@@ -49,12 +49,12 @@ public class StaffDAO {
     }
 
     public Map staffLogin(String username, String password, String tom){
-        SimpleJdbcCall jdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("scanUsernamePassword");
+        SimpleJdbcCall jdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("scan_username_and_password");
 
         Map<String, String> inParameters = new HashMap<>();
 
-        inParameters.put("username2", username);
-        inParameters.put("password2", password);
+        inParameters.put("check_username", username);
+        inParameters.put("check_password", password);
 
         SqlParameterSource in = new MapSqlParameterSource(inParameters);
 
@@ -71,12 +71,12 @@ public class StaffDAO {
     }
 
     public Map deleteStaff(String username, String password, String tom){
-        SimpleJdbcCall jdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("DeleteStaff");
+        SimpleJdbcCall jdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("delete_staff");
 
         Map<String, String> inParameters = new HashMap<>();
 
-        inParameters.put("username2", username);
-        inParameters.put("password2", password);
+        inParameters.put("select_username", username);
+        inParameters.put("select_password", password);
 
         SqlParameterSource in = new MapSqlParameterSource(inParameters);
 
@@ -84,9 +84,9 @@ public class StaffDAO {
 
         jdbcCall.execute(in);
 
-        System.out.println("tom: " + tom);
+        //System.out.println("tom: " + tom);
 
-        System.out.println("outParameters i dao: " + outParameters); //outParameters listan ÄR duplicate tabellen*/
+        //((System.out.println("outParameters i dao: " + outParameters);
 
         return outParameters;
 

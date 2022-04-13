@@ -23,9 +23,9 @@ import java.util.Map;
             Map<String, String> inParameters = new HashMap<>();
 
 
-            inParameters.put("movie_name", movieName);
-            inParameters.put("movie_datetime", dateTime);
-            inParameters.put("theater_id_order", String.valueOf(theaterId));
+            inParameters.put("new_movie_name", movieName);
+            inParameters.put("new_movie_datetime", dateTime);
+            inParameters.put("which_theater_id", String.valueOf(theaterId));
 
             SqlParameterSource in = new MapSqlParameterSource(inParameters);
 
@@ -35,11 +35,11 @@ import java.util.Map;
 
         public Map<String, Object> returnMovieSchema(String moviename){
 
-            SimpleJdbcCall jdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("returnMovieSchema");
+            SimpleJdbcCall jdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("return_movie_schema");
 
             Map<String, String> inParameters = new HashMap<>();
 
-            inParameters.put("Moviename", moviename);
+            inParameters.put("pick_movie_name", moviename);
 
             SqlParameterSource in = new MapSqlParameterSource(inParameters);
 

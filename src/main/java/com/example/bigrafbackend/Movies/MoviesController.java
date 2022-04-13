@@ -14,8 +14,8 @@ public class MoviesController {
     @Autowired
     MoviesService moviesService;
 
-    @GetMapping("/addMovie")
-    public String addMovie(@RequestParam(value = "movie_name") String moviename, @RequestParam(value = "movie_datetime") String dateTime, @RequestParam(value = "theater_id_order") int theaterId){
+    @GetMapping("/add_movie")
+    public String addMovie(@RequestParam(value = "new_movie_name") String moviename, @RequestParam(value = "new_movie_datetime") String dateTime, @RequestParam(value = "which_theater_id") int theaterId){
         Movies movies = new Movies(moviename, dateTime, theaterId);
 
         Map result = moviesService.addMovie(movies);
@@ -26,8 +26,8 @@ public class MoviesController {
         return gson.toJson(result);
     }
 
-    @GetMapping("/returnMovieSchema")
-    public String returnMovieSchema(@RequestParam(value = "Moviename") String moviename){
+    @GetMapping("/return_movie_schema")
+    public String returnMovieSchema(@RequestParam(value = "pick_movie_name") String moviename){
         Movies movies = new Movies(moviename);
 
         Map<String, Object> result = moviesService.returnMovieSchema(movies);

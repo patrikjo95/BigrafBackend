@@ -16,8 +16,8 @@ public class StaffController {
     StaffService staffService;
 
 
-    @GetMapping("/addStaff")
-    public String addStaff(@RequestParam(value = "adminName") String name, @RequestParam(value = "phone") String phone, @RequestParam(value = "username") String username, @RequestParam(value = "password") String password, @RequestParam(value = "@tom") String tom){
+    @GetMapping("/add_staff")
+    public String addStaff(@RequestParam(value = "new_name") String name, @RequestParam(value = "new_phonenumber") String phone, @RequestParam(value = "new_username") String username, @RequestParam(value = "new_password") String password, @RequestParam(value = "@tom") String tom){
         Staff staff = new Staff(name, phone, username, password, tom);
 
         Map outParameters = staffService.addStaff(staff);
@@ -32,21 +32,21 @@ public class StaffController {
 
     }
 
-    @GetMapping("/staffLogin")
-    public String staffLogin(@RequestParam(value = "username") String username, @RequestParam(value = "password") String password, @RequestParam(value = "@tom") String tom){
+    @GetMapping("/staff_login")
+    public String staffLogin(@RequestParam(value = "check_username") String username, @RequestParam(value = "check_password") String password, @RequestParam(value = "@tom") String tom){
         Staff staff = new Staff(username, password, tom);
 
         Map outParameters = staffService.staffLogin(staff);
 
         Gson gson = new Gson();
 
-        //System.out.println("outParameters i controller: " + outParametersAsString);
+        //System.out.println("outParameters i controller: " + outParameters);
 
         return gson.toJson(outParameters);
     }
 
-    @GetMapping("/deleteStaff")
-    public String deleteStaff(@RequestParam(value = "username") String username, @RequestParam(value = "password") String password, @RequestParam(value = "@tom") String tom){
+    @GetMapping("/delete_staff")
+    public String deleteStaff(@RequestParam(value = "select_username") String username, @RequestParam(value = "select_password") String password, @RequestParam(value = "@tom") String tom){
         Staff staff = new Staff(username, password, tom);
 
         Map outParameters = staffService.deleteStaff(staff);

@@ -12,8 +12,8 @@ public class MoviesService {
     @Autowired
     MoviesDAO moviesDAO;
 
-    public void addMovie(Movies movies){
-        moviesDAO.addMovies(movies.getMoviename(), movies.getDateTime(), movies.getTheaterId());
+    public Map addMovie(Movies movies){
+        return moviesDAO.addMovies(movies.getMoviename(), movies.getDateTime(), movies.getTheaterId());
     }
 
     public Map returnMovieSchema(Movies movies){

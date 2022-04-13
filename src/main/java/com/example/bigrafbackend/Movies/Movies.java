@@ -22,6 +22,12 @@ public class Movies {
         this.moviename = moviename;
     }
 
+    public Movies(String moviename, String dateTime, int theaterId) {
+        this.moviename = moviename;
+        this.dateTime= dateTime;
+        this.theaterId = theaterId;
+    }
+
     public int getId() {
         return id;
     }

@@ -15,8 +15,15 @@ public class MoviesController {
     MoviesService moviesService;
 
     @GetMapping("/addMovie")
-    public void addMovie(){
-        //moviesService.addMovie();
+    public String addMovie(@RequestParam(value = "movie_name") String moviename, @RequestParam(value = "movie_datetime") String dateTime, @RequestParam(value = "theater_id_order") int theaterId){
+        Movies movies = new Movies(moviename, dateTime, theaterId);
+
+        Map result = moviesService.addMovie(movies);
+
+        Gson gson = new Gson();
+
+        System.out.println(gson.toJson(result));
+        return gson.toJson(result);
     }
 
     @GetMapping("/returnMovieSchema")
@@ -25,13 +32,11 @@ public class MoviesController {
 
         Map result = moviesService.returnMovieSchema(movies);
 
-
-        System.out.println(result);
-
         Gson gson = new Gson();
-        String moviesAsString = gson.toJson(movies);
 
-        return moviesAsString;
+
+        System.out.println(gson.toJson(result));
+        return gson.toJson(result);
 
     }
 

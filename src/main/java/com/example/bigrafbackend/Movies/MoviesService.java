@@ -13,12 +13,12 @@ public class MoviesService {
     MoviesDAO moviesDAO;
 
     public Map addMovie(Movies movies){
-        return moviesDAO.addMovies(movies.getMoviename(), movies.getDateTime(), movies.getTheaterId());
+        return moviesDAO.addMovies(movies.getMovie_name(), movies.getMovie_datetime(), movies.getTheater_id());
     }
 
     public Map<String, Object> returnMovieSchema(Movies movies){
 
-        return moviesDAO.returnMovieSchema(movies.getMoviename());
+        return moviesDAO.returnMovieSchema(movies.getMovie_name());
     }
 
     public void callMovies(Movies movies){

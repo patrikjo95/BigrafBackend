@@ -68,6 +68,7 @@ public class Movies {
                 ", seats_avalible='" + seats_avalible + '\'' +
                 '}';
     }
+
 }
 
 

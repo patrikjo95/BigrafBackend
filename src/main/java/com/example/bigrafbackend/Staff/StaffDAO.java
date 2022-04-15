@@ -19,6 +19,16 @@ public class StaffDAO {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+
+    /**
+     * Använder simpleJdbcCall för att ropa på stored procedure och sen returnera outParameters.
+     * @param name
+     * @param phone
+     * @param username
+     * @param password
+     * @param tom
+     * @return
+     */
     public Map addStaff(String name, String phone, String username, String password, String tom) {
         SimpleJdbcCall jdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("add_staff");
 
@@ -48,6 +58,14 @@ public class StaffDAO {
         return outParameters;
     }
 
+
+    /**
+     * Använder simpleJdbcCall för att ropa på stored procedure och sen returnera outParameters.
+     * @param username
+     * @param password
+     * @param tom
+     * @return
+     */
     public Map staffLogin(String username, String password, String tom){
         SimpleJdbcCall jdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("scan_username_and_password");
 
@@ -70,6 +88,13 @@ public class StaffDAO {
 
     }
 
+    /**
+     * Använder simpleJdbcCall för att ropa på stored procedure och sen returnera outParameters.
+     * @param username
+     * @param password
+     * @param tom
+     * @return
+     */
     public Map deleteStaff(String username, String password, String tom){
         SimpleJdbcCall jdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("delete_staff");
 

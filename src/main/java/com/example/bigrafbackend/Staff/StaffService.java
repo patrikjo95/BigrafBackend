@@ -12,7 +12,6 @@ public class StaffService {
     StaffDAO staffdao;
 
     public Map addStaff(Staff staff) {
-        //System.out.println("outParameters i service: " + outParameters);
         return staffdao.addStaff(staff.getName(), staff.getPhone(), staff.getUsername(), staff.getPassword(), staff.getTom());
 
     }
